@@ -63,8 +63,9 @@ def analyze(request: Dict[str, Any]):
         metrics_str = "\n".join([f"- {k}: {v}" for k, v in request.items() if v is not None and v != ""])
         
         prompt = f"""<|system|>
-You are an expert AI model auditor. precise, critical, and thorough.
-Analyze the following model performance metrics and determine if there is a drift or issue.
+You are an expert AI model auditor. Your goal is to provide deep, comprehensive technical analysis.
+
+Analyze the following model performance metrics for potential drift or performance degradation.
 
 Metrics:
 {metrics_str}
@@ -72,7 +73,7 @@ Metrics:
 Provide your analysis in the following JSON format:
 {{
     "label": "Status Label (e.g., No Drift, Major Drift, Critical Failure)",
-    "explanation": "A detailed and comprehensive explanation (approx. 100 words) of why you assigned this label. deep dive into the specific metrics, compare them contextually, and provide actionable insights."
+    "explanation": "Provide a comprehensive analysis (approx. 100-150 words). Structure your response as follows:\\n1. Observations: Note specific metric values (e.g., 'AUC dropped to 0.85').\\n2. Diagnosis: Explain what this indicates (e.g., 'This suggests a label shift...').\\n3. Impact: Describe the potential business/risk impact.\\n4. Recommendation: Suggest specific next steps."
 }}
 <|end|>
 <|assistant|>
@@ -80,8 +81,8 @@ Provide your analysis in the following JSON format:
 
         payload = {
             "prompt": prompt,
-            "n_predict": 512,
-            "temperature": 0.1,
+            "n_predict": 600,
+            "temperature": 0.5,
             "json_schema": {
                 "type": "object",
                 "properties": {
