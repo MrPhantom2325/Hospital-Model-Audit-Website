@@ -23,10 +23,7 @@ export default function ModelAuditPage() {
   })
   const [jsonError, setJsonError] = useState("")
   const [isLoading, setIsLoading] = useState(false)
-  const [modelOutput, setModelOutput] = useState<{ label: string; explanation: string } | null>({
-    label: "Major Drift",
-    explanation: "A significant label distribution shift has been detected in the model's predictions compared to the training distribution. This indicates that the model is encountering data with substantially different label proportions than what it was trained on.\n\nKey indicators of this drift include:\n- Label distribution mismatch: The observed label frequencies deviate significantly from the expected training distribution\n- Performance degradation: Model accuracy and reliability may be compromised due to distribution shift\n- Data quality concerns: This drift suggests potential issues with data collection, preprocessing, or changes in the underlying data generation process\n\nRecommended actions:\n1. Investigate the source of the distribution shift in your input data\n2. Retrain or fine-tune the model on more recent, representative data\n3. Implement data validation checks to catch distribution shifts early\n4. Consider using domain adaptation techniques to improve model robustness\n5. Monitor label distributions continuously to detect future shifts proactively\n\nThis is a critical issue that requires immediate attention to maintain model performance and reliability."
-  })
+  const [modelOutput, setModelOutput] = useState<{ label: string; explanation: string } | null>(null)
   const [apiError, setApiError] = useState("")
   const [backendStatus, setBackendStatus] = useState<"checking" | "online" | "offline">("checking")
 
@@ -226,10 +223,10 @@ export default function ModelAuditPage() {
           <div className="text-center relative">
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent animate-shimmer"></div>
             <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight mb-4 bg-clip-text text-transparent bg-gradient-to-r from-white to-orange-100 drop-shadow-lg">
-              MODEL AUDIT TESTING
+             HOSPITAL AI MODEL TESTING
             </h1>
             <p className="text-xl text-orange-50 max-w-2xl mx-auto leading-relaxed font-medium">
-              Input your model metrics and test them with your model to analyze and print output.
+              Input your model metrics and test them with our model for analysis.
             </p>
           </div>
         </div>
@@ -633,11 +630,27 @@ export default function ModelAuditPage() {
                   </div>
                 </div>
               ) : (
-                <div className="p-8 rounded-2xl bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 border-2 border-slate-200 dark:border-slate-700 shadow-lg">
-                  <div className="text-center text-slate-500 dark:text-slate-400">
-                    <p className="text-lg font-medium">No analysis yet</p>
-                    <p className="text-sm mt-2">Enter metrics and click "RUN MODEL" to get started</p>
+                <div className="p-12 rounded-2xl bg-gradient-to-br from-slate-50/50 to-slate-100/50 dark:from-slate-800/30 dark:to-slate-900/30 border-2 border-dashed border-slate-300 dark:border-slate-700 hover:border-orange-400/50 dark:hover:border-orange-500/50 transition-colors duration-300 flex flex-col items-center justify-center text-center group">
+                  <div className="w-20 h-20 mb-6 rounded-full bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                    <svg
+                      className="w-10 h-10 text-orange-600 dark:text-orange-500"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"
+                      />
+                    </svg>
                   </div>
+                  <h3 className="text-xl font-bold text-slate-800 dark:text-slate-200 mb-2">Ready for Analysis</h3>
+                  <p className="text-slate-600 dark:text-slate-400 max-w-sm">
+                    Enter your model performance metrics on the left or upload a JSON file to generate a comprehensive audit report.
+                  </p>
                 </div>
               )}
             </div>
