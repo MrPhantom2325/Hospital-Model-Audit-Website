@@ -70,10 +70,19 @@ Analyze the following model performance metrics for potential drift or performan
 Metrics:
 {metrics_str}
 
+REQUIREMENTS:
+1. Provide a comprehensive analysis (approx. 300 words).
+2. You MUST use newline characters (\\n) to separate the sections.
+3. Structure your 'explanation' field as follows:
+   1. Observations: [Details...]
+   2. Diagnosis: [Details...]
+   3. Impact: [Details...]
+   4. Recommendation: [Details...]
+
 Provide your analysis in the following JSON format:
 {{
-    "label": "Status Label (e.g., No Drift, Major Drift, Critical Failure)",
-    "explanation": "Provide a comprehensive analysis (approx. 300 words). MUST use newline characters (\\n) to separate the following sections:\\n\\n1. Observations: [Details...]\\n\\n2. Diagnosis: [Details...]\\n\\n3. Impact: [Details...]\\n\\n4. Recommendation: [Details...]"
+    "label": "Status Label",
+    "explanation": "Your detailed analysis here..."
 }}
 <|end|>
 <|assistant|>

@@ -624,7 +624,7 @@ export default function ModelAuditPage() {
                     <h3 className="text-4xl md:text-5xl font-extrabold mb-6 bg-gradient-to-r from-orange-600 to-orange-700 dark:from-orange-400 dark:to-orange-500 bg-clip-text text-transparent">
                       {modelOutput.label}
                     </h3>
-                    <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium">
+                    <p className="text-lg text-slate-700 dark:text-slate-300 leading-relaxed font-medium whitespace-pre-wrap">
                       {modelOutput.explanation}
                     </p>
                   </div>
