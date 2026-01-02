@@ -73,7 +73,7 @@ Metrics:
 Provide your analysis in the following JSON format:
 {{
     "label": "Status Label (e.g., No Drift, Major Drift, Critical Failure)",
-    "explanation": "Provide a comprehensive analysis (approx. 100-150 words). Structure your response as follows:\\n1. Observations: Note specific metric values (e.g., 'AUC dropped to 0.85').\\n2. Diagnosis: Explain what this indicates (e.g., 'This suggests a label shift...').\\n3. Impact: Describe the potential business/risk impact.\\n4. Recommendation: Suggest specific next steps."
+    "explanation": "Provide a comprehensive analysis (approx. 300 words). Structure your response as follows:\\n1. Observations: Note specific metric values (e.g., 'AUC dropped to 0.85').\\n2. Diagnosis: Explain what this indicates (e.g., 'This suggests a label shift...').\\n3. Impact: Describe the potential business/risk impact.\\n4. Recommendation: Suggest specific next steps."
 }}
 <|end|>
 <|assistant|>
@@ -81,7 +81,7 @@ Provide your analysis in the following JSON format:
 
         payload = {
             "prompt": prompt,
-            "n_predict": 600,
+            "n_predict": 1024,
             "temperature": 0.5,
             "json_schema": {
                 "type": "object",
