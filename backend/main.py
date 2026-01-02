@@ -72,7 +72,7 @@ Metrics:
 Provide your analysis in the following JSON format:
 {{
     "label": "Status Label (e.g., No Drift, Major Drift, Critical Failure)",
-    "explanation": "A comprehensive and detailed explanation of why you assigned this label. Analyze specific metrics that are concerning, explain the potential impact of the drift/issue, and suggest possible causes or next steps. Aim for at least 3-4 sentences."
+    "explanation": "A detailed and comprehensive explanation (approx. 100 words) of why you assigned this label. deep dive into the specific metrics, compare them contextually, and provide actionable insights."
 }}
 <|end|>
 <|assistant|>
@@ -80,7 +80,7 @@ Provide your analysis in the following JSON format:
 
         payload = {
             "prompt": prompt,
-            "n_predict": 300,
+            "n_predict": 512,
             "temperature": 0.1,
             "json_schema": {
                 "type": "object",
