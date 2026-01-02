@@ -94,7 +94,7 @@ Provide your analysis in the following JSON format:
         }
 
         print("Sending request to llama.cpp server...")
-        response = requests.post(LLAMA_SERVER_URL, json=payload, timeout=60)
+        response = requests.post(LLAMA_SERVER_URL, json=payload, timeout=300)
         
         if response.status_code == 200:
             result = response.json()
