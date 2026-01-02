@@ -73,7 +73,7 @@ Metrics:
 Provide your analysis in the following JSON format:
 {{
     "label": "Status Label (e.g., No Drift, Major Drift, Critical Failure)",
-    "explanation": "Provide a comprehensive analysis (approx. 300 words). Structure your response as follows:\\n1. Observations: Note specific metric values (e.g., 'AUC dropped to 0.85').\\n2. Diagnosis: Explain what this indicates (e.g., 'This suggests a label shift...').\\n3. Impact: Describe the potential business/risk impact.\\n4. Recommendation: Suggest specific next steps."
+    "explanation": "Provide a comprehensive analysis (approx. 300 words). MUST use newline characters (\\n) to separate the following sections:\\n\\n1. Observations: [Details...]\\n\\n2. Diagnosis: [Details...]\\n\\n3. Impact: [Details...]\\n\\n4. Recommendation: [Details...]"
 }}
 <|end|>
 <|assistant|>
